@@ -1,0 +1,92 @@
+#!/sbin/openrc-run
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/folm/.folm" ]; then
+	FOLMD_DEFAULT_DATADIR="/var/lib/folm/.folm"
+else
+	FOLMD_DEFAULT_DATADIR="/var/lib/folmd"
+fi
+
+FOLMD_CONFIGFILE=${FOLMD_CONFIGFILE:-/etc/folm/folm.conf}
+FOLMD_PIDDIR=${FOLMD_PIDDIR:-/var/run/folmd}
+FOLMD_PIDFILE=${FOLMD_PIDFILE:-${FOLMD_PIDDIR}/folmd.pid}
+FOLMD_DATADIR=${FOLMD_DATADIR:-${FOLMD_DEFAULT_DATADIR}}
+FOLMD_USER=${FOLMD_USER:-${FOLM_USER:-folm}}
+FOLMD_GROUP=${FOLMD_GROUP:-folm}
+FOLMD_BIN=${FOLMD_BIN:-/usr/bin/folmd}
+FOLMD_NICE=${FOLMD_NICE:-${NICELEVEL:-0}}
+FOLMD_OPTS="${FOLMD_OPTS:-${FOLM_OPTS}}"
+
+name="Folm Core Daemon"
+description="Folm cryptocurrency P2P network daemon"
+
+command="/usr/bin/folmd"
+command_args="-pid=\"${FOLMD_PIDFILE}\" \
+		-conf=\"${FOLMD_CONFIGFILE}\" \
+		-datadir=\"${FOLMD_DATADIR}\" \
+		-daemon \
+		${FOLMD_OPTS}"
+
+required_files="${FOLMD_CONFIGFILE}"
+start_stop_daemon_args="-u ${FOLMD_USER} \
+			-N ${FOLMD_NICE} -w 2000"
+pidfile="${FOLMD_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${FOLMD_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${FOLMD_USER}:${FOLMD_GROUP}" \
+	"${FOLMD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${FOLMD_USER}:${FOLMD_GROUP}" \
+	"${FOLMD_PIDDIR}"
+
+	checkpath -f \
+	-o ${FOLMD_USER}:${FOLMD_GROUP} \
+	-m 0660 \
+	${FOLMD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${FOLMD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run folmd."
+		eerror "The setting must appear in ${FOLMD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Folm Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

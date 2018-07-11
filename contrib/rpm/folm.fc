@@ -1,0 +1,8 @@
+/usr/bin/folm-cli		--	gen_context(system_u:object_r:folm_exec_t,s0)
+/usr/sbin/folmd		--	gen_context(system_u:object_r:folm_exec_t,s0)
+/usr/lib(64)?/folm/folmd		--	gen_context(system_u:object_r:folm_exec_t,s0)
+
+/etc/folm(/.*)?		gen_context(system_u:object_r:folm_conf_t,s0)
+/var/lib/folm(/.*)?		gen_context(system_u:object_r:folm_var_lib_t,s0)
+
+(/var)?/run/folmd(/.*)?   gen_context(system_u:object_r:folm_var_run_t,s0)

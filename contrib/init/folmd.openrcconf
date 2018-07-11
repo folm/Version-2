@@ -1,0 +1,33 @@
+# /etc/conf.d/folmd: config file for /etc/init.d/folmd
+
+# Config file location
+#FOLMD_CONFIGFILE="/etc/folm/folm.conf"
+
+# What directory to write pidfile to?  (created and owned by $FOLMD_USER)
+#FOLMD_PIDDIR="/var/run/folmd"
+
+# What filename to give the pidfile
+#FOLMD_PIDFILE="${FOLMD_PIDDIR}/folmd.pid"
+
+# Where to write folmd data (be mindful that the blockchain is large)
+#FOLMD_DATADIR="/var/lib/folmd"
+
+# User and group to own folmd process
+#FOLMD_USER="folm"
+#FOLMD_GROUP="folm"
+
+# Path to folmd executable
+#FOLMD_BIN="/usr/bin/folmd"
+
+# Nice value to run folmd under
+#FOLMD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#FOLMD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for folmd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+FOLMD_SIGTERM_TIMEOUT=60

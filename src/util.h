@@ -7,11 +7,11 @@
  * Server/client environment: argument handling, config file parsing,
  * logging, thread wrappers, startup time
  */
-#ifndef BITCOIN_UTIL_H
-#define BITCOIN_UTIL_H
+#ifndef FOLM_UTIL_H
+#define FOLM_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/folm-config.h>
 #endif
 
 #include <compat.h>
@@ -55,8 +55,8 @@ extern bool fLogIPs;
 extern std::atomic<bool> fReopenDebugLog;
 extern CTranslationInterface translationInterface;
 
-extern const char * const BITCOIN_CONF_FILENAME;
-extern const char * const BITCOIN_PID_FILENAME;
+extern const char * const FOLM_CONF_FILENAME;
+extern const char * const FOLM_PID_FILENAME;
 
 extern std::atomic<uint32_t> logCategories;
 
@@ -315,7 +315,7 @@ void RenameThread(const char* name);
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("bitcoin-%s", name);
+    std::string s = strprintf("folm-%s", name);
     RenameThread(s.c_str());
     try
     {
@@ -347,4 +347,4 @@ std::unique_ptr<T> MakeUnique(Args&&... args)
     return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
 }
 
-#endif // BITCOIN_UTIL_H
+#endif // FOLM_UTIL_H

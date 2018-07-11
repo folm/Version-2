@@ -1,0 +1,81 @@
+policy_module(folm, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type folm_t;
+type folm_exec_t;
+init_daemon_domain(folm_t, folm_exec_t)
+
+permissive folm_t;
+
+type folm_initrc_exec_t;
+init_script_file(folm_initrc_exec_t)
+
+type folm_conf_t;
+files_type(folm_conf_t)
+
+type folm_var_lib_t;
+files_type(folm_var_lib_t)
+
+type folm_var_run_t;
+files_type(folm_var_run_t)
+
+type folm_port_t;
+corenet_port(folm_port_t)
+
+########################################
+#
+# folm local policy
+#
+allow folm_t self:process { fork };
+
+allow folm_t self:fifo_file rw_fifo_file_perms;
+allow folm_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(folm_t, folm_conf_t, folm_conf_t)
+manage_files_pattern(folm_t, folm_conf_t, folm_conf_t)
+
+manage_dirs_pattern(folm_t, folm_var_lib_t, folm_var_lib_t)
+manage_files_pattern(folm_t, folm_var_lib_t, folm_var_lib_t)
+files_var_lib_filetrans(folm_t, folm_var_lib_t, { dir file })
+
+manage_dirs_pattern(folm_t, folm_var_run_t, folm_var_run_t)
+manage_files_pattern(folm_t, folm_var_run_t, folm_var_run_t)
+
+sysnet_dns_name_resolve(folm_t)
+corenet_all_recvfrom_unlabeled(folm_t)
+
+allow folm_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(folm_t)
+corenet_tcp_sendrecv_generic_node(folm_t)
+corenet_tcp_sendrecv_all_ports(folm_t)
+corenet_tcp_bind_generic_node(folm_t)
+
+gen_require(`
+    type folm_port_t;
+')
+allow folm_t folm_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type folm_port_t;
+')
+allow folm_t folm_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(folm_t)
+
+files_read_etc_files(folm_t)
+
+miscfiles_read_localization(folm_t)
+
+sysnet_dns_name_resolve(folm_t)
+
+allow folm_t folm_exec_t:file execute_no_trans;
+allow folm_t self:process setsched;
+corecmd_exec_ls(folm_t)
+corenet_tcp_connect_http_port(folm_t)
+dev_read_urand(folm_t)
+fs_getattr_xattr_fs(folm_t)
+kernel_read_system_state(folm_t)

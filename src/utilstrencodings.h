@@ -6,8 +6,8 @@
 /**
  * Utilities for converting data from/to strings.
  */
-#ifndef BITCOIN_UTILSTRENCODINGS_H
-#define BITCOIN_UTILSTRENCODINGS_H
+#ifndef FOLM_UTILSTRENCODINGS_H
+#define FOLM_UTILSTRENCODINGS_H
 
 #include <stdint.h>
 #include <string>
@@ -173,4 +173,4 @@ bool ConvertBits(O& out, I it, I end) {
     return true;
 }
 
-#endif // BITCOIN_UTILSTRENCODINGS_H
+#endif // FOLM_UTILSTRENCODINGS_H

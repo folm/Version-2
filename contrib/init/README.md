@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: bitcoind.service
-Upstart: bitcoind.conf
-OpenRC:  bitcoind.openrc
-         bitcoind.openrcconf
-CentOS:  bitcoind.init
-OS X:    org.bitcoin.bitcoind.plist
+SystemD: folmd.service
+Upstart: folmd.conf
+OpenRC:  folmd.openrc
+         folmd.openrcconf
+CentOS:  folmd.init
+OS X:    org.folm.folmd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

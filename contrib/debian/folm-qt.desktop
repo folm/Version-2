@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Folm Core
+Comment=Connect to the Folm P2P Network
+Comment[de]=Verbinde mit dem Folm peer-to-peer Netzwerk
+Comment[fr]=Folm, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Folm, eşten eşe kriptografik sanal para birimi
+Exec=folm-qt %u
+Terminal=false
+Type=Application
+Icon=folm128
+MimeType=x-scheme-handler/folm;
+Categories=Office;Finance;
+StartupWMClass=Folm-qt
