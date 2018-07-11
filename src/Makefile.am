@@ -255,26 +255,39 @@ libfolm_wallet_a_SOURCES = \
   $(FOLM_CORE_H)
 
 # crypto primitives library
-crypto_libfolm_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libfolm_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libfolm_crypto_a_CFLAGS = -fPIC
+crypto_libfolm_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(FOLM_INCLUDES) -DBUILD_FOLM_INTERNAL
+#crypto_libfolm_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 crypto_libfolm_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
-  crypto/chacha20.h \
-  crypto/chacha20.cpp \
+  crypto/aes_helper.c \
   crypto/common.h \
+  crypto/skein.c \
+  crypto/jh.c \
+  crypto/cubehash.c \
+  crypto/fugue.c \
+  crypto/gost.c \
+  crypto/echo.c \
   crypto/hmac_sha256.cpp \
   crypto/hmac_sha256.h \
   crypto/hmac_sha512.cpp \
   crypto/hmac_sha512.h \
   crypto/ripemd160.cpp \
   crypto/ripemd160.h \
+  crypto/sph_skein.h \
+  crypto/sph_jh.h \
+  crypto/sph_cubehash.h \
+  crypto/sph_fugue.h \
+  crypto/sph_gost.h \
+  crypto/sph_echo.h \
   crypto/sha1.cpp \
   crypto/sha1.h \
   crypto/sha256.cpp \
   crypto/sha256.h \
   crypto/sha512.cpp \
-  crypto/sha512.h
+  crypto/sha512.h \
+  crypto/sph_types.h
 
 if USE_ASM
 crypto_libfolm_crypto_a_SOURCES += crypto/sha256_sse4.cpp
