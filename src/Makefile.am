@@ -252,6 +252,7 @@ libfolm_wallet_a_SOURCES = \
   wallet/wallet.cpp \
   wallet/walletdb.cpp \
   wallet/walletutil.cpp \
+  stake.cpp \
   $(FOLM_CORE_H)
 
 # crypto primitives library
@@ -308,6 +309,7 @@ libfolm_consensus_a_SOURCES = \
   script/script_error.cpp \
   script/script_error.h \
   serialize.h \
+  stake.h \
   tinyformat.h \
   uint256.cpp \
   uint256.h \
