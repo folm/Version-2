@@ -47,7 +47,8 @@ public:
     friend inline bool operator==(const base_blob& a, const base_blob& b) { return a.Compare(b) == 0; }
     friend inline bool operator!=(const base_blob& a, const base_blob& b) { return a.Compare(b) != 0; }
     friend inline bool operator<(const base_blob& a, const base_blob& b) { return a.Compare(b) < 0; }
-
+    friend inline const base_blob operator>>(const base_blob& a, int shift) { return base_blob(a) >>= shift; }
+    friend inline const base_blob operator<<(const base_blob& a, int shift) { return base_blob(a) <<= shift; }
     std::string GetHex() const;
     void SetHex(const char* psz);
     void SetHex(const std::string& str);
@@ -77,10 +78,23 @@ public:
     {
         return sizeof(data);
     }
+    base_blob& operator>>=(unsigned int shift);
+    base_blob& operator<<=(unsigned int shift);
 
     uint64_t Get64(int n = 0) const
     {
         return data[2 * n] | (uint64_t)data[2 * n + 1] << 32;
+    }
+    /**
+        * Returns the position of the highest bit set plus one, or zero if the
+        * value is zero.
+        */
+    unsigned int bits() const;
+
+    uint64_t GetLow64() const
+    {
+        assert(WIDTH >= 2);
+        return data[0] | (uint64_t)data[1] << 32;
     }
 
     uint64_t GetUint64(int pos) const
@@ -134,6 +148,9 @@ public:
      * when the value can easily be influenced from outside as e.g. a network adversary could
      * provide values to trigger worst-case behavior.
      */
+
+    uint256& SetCompact(uint32_t nCompact, bool* pfNegative = NULL, bool* pfOverflow = NULL);
+    uint32_t GetCompact(bool fNegative = false) const;
     uint64_t GetCheapHash() const
     {
         return ReadLE64(data);

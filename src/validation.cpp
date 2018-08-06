@@ -29,6 +29,7 @@
 #include <script/script.h>
 #include <script/sigcache.h>
 #include <script/standard.h>
+#include <stake.h>
 #include <timedata.h>
 #include <tinyformat.h>
 #include <txdb.h>
@@ -40,6 +41,7 @@
 #include <utilstrencodings.h>
 #include <validationinterface.h>
 #include <warnings.h>
+#include <wallet/wallet.h>
 
 #include <future>
 #include <sstream>
@@ -3427,14 +3429,22 @@ bool CChainState::AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CVali
 bool ProcessNewBlock(const CChainParams& chainparams, const std::shared_ptr<const CBlock> pblock, bool fForceProcessing, bool *fNewBlock)
 {
     AssertLockNotHeld(cs_main);
-
+    CBlockIndex *pindex = nullptr;
     {
-        CBlockIndex *pindex = nullptr;
+
         if (fNewBlock) *fNewBlock = false;
         CValidationState state;
         // Ensure that CheckBlock() passes before calling AcceptBlock, as
         // belt-and-suspenders.
         bool ret = CheckBlock(*pblock, state, chainparams.GetConsensus());
+
+        // Check proof-of-stake block signature
+        if (!pblock->CheckBlockSignature())
+            return error("%s: bad block signature", __func__);
+        // Limited duplicity on stake: prevents block flood attack
+        // Duplicate stake allowed only when there is orphan child block
+        if (pblock->IsProofOfStake() && stake->IsBlockStaked(pblock) && !mapBlockIndex.count(pblock->hashPrevBlock))
+            return error("%s: duplicate proof-of-stake for block %s", __func__, pblock->GetHash().GetHex());
 
         LOCK(cs_main);
 
@@ -3451,95 +3461,15 @@ bool ProcessNewBlock(const CChainParams& chainparams, const std::shared_ptr<cons
     NotifyHeaderTip();
 
     CValidationState state; // Only used to report errors, not invalidity - ignore it
-    if (!g_chainstate.ActivateBestChain(state, chainparams, pblock))
+    if (!g_chainstate.ActivateBestChain(state, chainparams, pblock)){
+        //default
         return error("%s: ActivateBestChain failed", __func__);
-
-    return true;
-}
-
-
-bool ProcessNewBlockStake(CValidationState& state, const CChainParams& chainparams, CNode* pfrom, const CBlock* pblock, CDiskBlockPos* dbp)
-{
-    int nHeight = chainActive.Height() + 1;
-
-    // Preliminary checks
-    if (!CheckBlock(*pblock, state, chainparams.GetConsensus()))
-        return error("%s: block not passing checks", __func__);
-
-    // Check proof-of-stake block signature
-    if (!pblock->CheckBlockSignature())
-        return error("%s: bad block signature", __func__);
-
-    // Limited duplicity on stake: prevents block flood attack
-    // Duplicate stake allowed only when there is orphan child block
-    if (pblock->IsProofOfStake() && stake->IsBlockStaked(pblock) && !mapBlockIndex.count(pblock->hashPrevBlock))
-        return error("%s: duplicate proof-of-stake for block %s", __func__, pblock->GetHash().GetHex());
-
-        // Check if the prev block is our prev block, if not then request sync and return false
-    else if (pblock->GetHash() != chainparams.GetConsensus().hashGenesisBlock && pfrom != NULL) {
-        CBlockIndex* pindexPrev = LookupBlockIndex(pblock->hashPrevBlock);
-        if (!pindexPrev) {
-            pfrom->PushMessage("getblocks", chainActive.GetLocator(), uint256(0));
-            return false;
-        } else {
-            nHeight = pindexPrev->nHeight + 1;
-        }
-    }
-
-    // Reject all blocks from old chain forks
-    if (nHeight > SNAPSHOT_BLOCK && pblock->nTime < SNAPSHOT_VALID_TIME) {
-        return error("%s: Invalid block %d, time too old (%x) for %s",
-                     __func__, nHeight, pblock->nTime, pblock->GetHash().GetHex());
-    }
-
-    CBlockIndex* pindex = NULL;
-    while (true) {
-        TRY_LOCK(cs_main, lockMain);
-        if (!lockMain) {
-            MilliSleep(50);
-            continue;
-        }
-
-        MarkBlockAsReceived(pblock->GetHash());
-
-        // Store to disk
-        bool ret = AcceptBlock(*pblock, state, chainparams, &pindex, dbp);
-        if (pindex && pfrom) {
-            mapBlockSource[pindex->GetBlockHash()] = pfrom->GetId();
-        }
-
-        CheckBlockIndex(chainparams.GetConsensus());
-
-        if (ret) {
-            break;
-        } else {
-            return error("%s: block not accepted", __func__);
-        }
-    }
-
-    if (ActivateBestChain(state, chainparams, pblock)) {
+    }else{
         stake->MarkBlockStaked(pindex->nHeight, pindex->nTime);
-    } else {
-        return error("%s: ActivateBestChain failed", __func__);
     }
 
-    if (pwalletMain) {
-        // If turned on MultiSend will send a transaction (or more) on the after maturity of a stake
-        if (pwalletMain->isMultiSendEnabled())
-            pwalletMain->MultiSend();
+    uint256 hash = pblock->GetHash();
 
-        //If turned on Auto Combine will scan wallet for dust to combine
-        if (pwalletMain->fCombineDust)
-            pwalletMain->AutoCombineDust();
-    }
-
-    auto const &hash = pindex->GetBlockHash();
-    const char * const s = pindex->IsProofOfStake() ? "pos" : "pow";
-    if (fDebug) {
-        LogPrintf("%s: ACCEPTED %d %s (%s)\n%s\n", __func__, pindex->nHeight, hash.GetHex(), s, pblock->ToString());
-    } else if (!hideLogMessage) {
-        LogPrintf("%s: ACCEPTED %d %s (%s)\n", __func__, pindex->nHeight, hash.GetHex(), s);
-    }
 
     return true;
 }
