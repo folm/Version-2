@@ -94,7 +94,7 @@ uint32_t uint256::GetCompact(bool fNegative) const
     if (nSize <= 3) {
         nCompact = GetLow64() << 8 * (3 - nSize);
     } else {
-        uint256 bn = *this >> 8 * (nSize - 3);
+        base_blob bn = *this >> 8 * (nSize - 3);
         nCompact = bn.GetLow64();
     }
     // The 0x00800000 bit denotes the sign.

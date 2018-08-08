@@ -3497,6 +3497,21 @@ bool TestBlockValidity(CValidationState& state, const CChainParams& chainparams,
     return true;
 }
 
+/****** POS ***/
+
+uint256 bnProofOfStakeLimit = (~uint256(0) >> 20);
+uint256 bnProofOfStakeLimitV2 = (~uint256(0) >> 34);
+
+uint256 GetProofOfStakeLimit(int nHeight)
+{
+    if (IsProtocolV2(nHeight))
+        return bnProofOfStakeLimitV2;
+    else
+        return bnProofOfStakeLimit;
+}
+
+
+
 /**
  * BLOCK PRUNING CODE
  */

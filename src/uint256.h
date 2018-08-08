@@ -28,7 +28,7 @@ public:
     }
 
     explicit base_blob(const std::vector<unsigned char>& vch);
-
+    explicit base_blob(const std::string& str);
     bool IsNull() const
     {
         for (int i = 0; i < WIDTH; i++)
@@ -49,6 +49,8 @@ public:
     friend inline bool operator<(const base_blob& a, const base_blob& b) { return a.Compare(b) < 0; }
     friend inline const base_blob operator>>(const base_blob& a, int shift) { return base_blob(a) >>= shift; }
     friend inline const base_blob operator<<(const base_blob& a, int shift) { return base_blob(a) <<= shift; }
+    friend inline bool operator==(const base_blob& a, uint64_t b) { return a.EqualTo(b); }
+
     std::string GetHex() const;
     void SetHex(const char* psz);
     void SetHex(const std::string& str);
@@ -78,6 +80,16 @@ public:
     {
         return sizeof(data);
     }
+
+    const base_blob operator~() const
+    {
+        base_blob ret;
+        for (int i = 0; i < WIDTH; i++)
+            ret.data[i] = ~data[i];
+        return ret;
+    }
+
+
     base_blob& operator>>=(unsigned int shift);
     base_blob& operator<<=(unsigned int shift);
 
@@ -110,6 +122,25 @@ public:
                ((uint64_t)ptr[7]) << 56;
     }
 
+
+    base_blob& operator=(const base_blob& b)
+    {
+        for (int i = 0; i < WIDTH; i++)
+            data[i] = b.data[i];
+        return *this;
+    }
+
+
+    base_blob(uint64_t b)
+    {
+        data[0] = (unsigned int)b;
+        data[1] = (unsigned int)(b >> 32);
+        for (int i = 2; i < WIDTH; i++)
+            data[i] = 0;
+    }
+
+
+
     template<typename Stream>
     void Serialize(Stream& s) const
     {
@@ -141,7 +172,10 @@ public:
 class uint256 : public base_blob<256> {
 public:
     uint256() {}
+    uint256(const base_blob<256>& b) : base_blob<256>(b) {}
+    uint256(uint64_t b) : base_blob<256>(b) {}
     explicit uint256(const std::vector<unsigned char>& vch) : base_blob<256>(vch) {}
+    explicit uint256(const std::string& str) : base_blob<256>(str) {}
 
     /** A cheap hash function that just returns 64 bits from the result, it can be
      * used when the contents are considered uniformly random. It is not appropriate
@@ -151,9 +185,18 @@ public:
 
     uint256& SetCompact(uint32_t nCompact, bool* pfNegative = NULL, bool* pfOverflow = NULL);
     uint32_t GetCompact(bool fNegative = false) const;
-    uint64_t GetCheapHash() const
+    uint64_t GetCheapHash() const{
+        return  ReadLE64(data);
+    }
+    uint64_t GetHash(const uint256& salt) const;
+
+    uint256& operator=(uint64_t b)
     {
-        return ReadLE64(data);
+        data[0] = (unsigned int)b;
+        data[1] = (unsigned int)(b >> 32);
+        for (int i = 2; i < WIDTH; i++)
+            data[i] = 0;
+        return *this;
     }
 };
 
