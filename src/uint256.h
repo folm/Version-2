@@ -45,7 +45,12 @@ public:
     inline int Compare(const base_blob& other) const { return memcmp(data, other.data, sizeof(data)); }
 
     int CompareTo(const base_blob& b) const;
+<<<<<<< HEAD
     bool EqualTo(uint64_t b) const
+=======
+    bool EqualTo(uint64_t b) const;
+
+>>>>>>> 82767e418054ef2e9f5120867cc1bf4d72c12eac
     friend inline bool operator==(const base_blob& a, const base_blob& b) { return a.Compare(b) == 0; }
     friend inline bool operator!=(const base_blob& a, const base_blob& b) { return a.Compare(b) != 0; }
     friend inline bool operator<(const base_blob& a, const base_blob& b) { return a.Compare(b) < 0; }

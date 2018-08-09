@@ -183,6 +183,10 @@ bool base_blob<BITS>::EqualTo(uint64_t b) const
         return false;
     return true;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 82767e418054ef2e9f5120867cc1bf4d72c12eac
 
 // Explicit instantiations for base_blob<160>
 template base_blob<160>::base_blob(const std::vector<unsigned char>&);
