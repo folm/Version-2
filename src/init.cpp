@@ -320,9 +320,13 @@ void OnRPCStopped()
 std::string HelpMessage(HelpMessageMode mode)
 {
     const auto defaultBaseParams = CreateBaseChainParams(CBaseChainParams::MAIN);
+    const CChainParams& defaultBaseParams = *defaultBaseParams;
     const auto testnetBaseParams = CreateBaseChainParams(CBaseChainParams::TESTNET);
+    const CChainParams& testnetBaseParams = *testnetBaseParams;
     const auto defaultChainParams = CreateChainParams(CBaseChainParams::MAIN);
+    const CChainParams& defaultChainParams = *defaultChainParams;
     const auto testnetChainParams = CreateChainParams(CBaseChainParams::TESTNET);
+    const CChainParams& testnetChainParams = *testnetChainParams;
     const bool showDebug = gArgs.GetBoolArg("-help-debug", false);
 
     // When adding new options to the categories, please keep and ensure alphabetical ordering.
