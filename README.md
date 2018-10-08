@@ -3,7 +3,40 @@ Folm Core integration/staging tree
 
 [![Build Status](https://travis-ci.org/folm/folm.svg?branch=master)](https://travis-ci.org/folm/folm)
 
-https://folmcore.org
+"Valuable secure Privacy cryptocurrency"
+
+<a href="https://discord.gg/uDmpSHx"><img src="https://discordapp.com/api/guilds/398369914760593419/embed.png" alt="Discord server" /></a> |
+<a class="twitter-follow-button"
+  href="https://twitter.com/folmcoin"
+   data-size="large">
+Follow @folmcoin</a> |
+-
+<a class="twitter-follow-button"
+  href="https://folmcoin.com/newblog/news"
+   data-size="large">
+Folm News</a> 
+-
+<a class="twitter-follow-button"
+  href="https://folmcoin.com/newblog/nodehelp"
+   data-size="large">
+Folm Masternode Supporting</a> 
+-
+<a class="twitter-follow-button"
+  href="https://folmcoin.com/newblog/bounties"
+   data-size="large">
+Folm Bounties</a> 
+-
+
+| [Website](https://folmcoin.com) |[Block Explorer](https://explorer.folm.io/) |
+
+Version 3.3.0 is builded for insight api. After some tests it will be released for all operating systems.
+
+Features
+=============
+
+* Folm Coin - Masternode
+* New PHI1612 PoW/PoS/MN algorithm thanks for 216k155 and Folm Core Team
+* MN Reward
 
 What is Folm?
 ----------------
