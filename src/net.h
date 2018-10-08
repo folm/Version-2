@@ -100,6 +100,9 @@ struct AddedNodeInfo
 class CNodeStats;
 class CClientUIInterface;
 
+extern std::vector<CNode*> vNodes;
+extern CCriticalSection cs_vNodes;
+
 struct CSerializedNetMsg
 {
     CSerializedNetMsg() = default;
