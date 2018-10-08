@@ -15,17 +15,21 @@
 #include <consensus/validation.h>
 #include <hash.h>
 #include <validation.h>
+#include <stake.h>
 #include <net.h>
 #include <policy/feerate.h>
 #include <policy/policy.h>
 #include <pow.h>
+#include <primitives/block.h>
 #include <primitives/transaction.h>
 #include <script/standard.h>
 #include <timedata.h>
 #include <util.h>
 #include <utilmoneystr.h>
 #include <validationinterface.h>
-
+#ifdef ENABLE_WALLET
+#include "wallet/wallet.h"
+#endif
 #include <algorithm>
 #include <queue>
 #include <utility>
@@ -454,4 +458,35 @@ void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned
 
     pblock->vtx[0] = MakeTransactionRef(std::move(txCoinbase));
     pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
+}
++
+bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
+{
+    LogPrintf("%s\n", pblock->ToString());
+  // LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue));
+
+    // Found a solution
+    {
+        LOCK(cs_main);
+        if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
+            return error("LUXMiner : generated block is stale");
+    }
+
+    // Remove key from key pool
+    reservekey.KeepKey();
+
+    // Track how many getdata requests this block gets
+    {
+        LOCK(wallet.cs_wallet);
+        wallet.mapRequestCount[pblock->GetHash()] = 0;
+    }
+
+    // Process this block the same as if we had received it from another node
+    const CChainParams& chainparams = Params();
+    CValidationState state;
+    if (!ProcessNewBlockStake(state, chainparams, NULL, pblock)) {
+        return error("LUXMiner : ProcessNewBlock, block not accepted");
+    }
+
+    return true;
 }
