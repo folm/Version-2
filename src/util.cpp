@@ -79,6 +79,8 @@
 #include <openssl/rand.h>
 #include <openssl/conf.h>
 
+std::atomic<bool> hideLogMessage(false);
+
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
@@ -87,6 +89,8 @@ const char * const FOLM_PID_FILENAME = "folmd.pid";
 const char * const DEFAULT_DEBUGLOGFILE = "debug.log";
 
 ArgsManager gArgs;
+bool fDebug = false;
+bool fDebugMnSecurity = false;
 bool fPrintToConsole = false;
 bool fPrintToDebugLog = true;
 
@@ -941,6 +945,19 @@ int GetNumCores()
 #else // Must fall back to hardware_concurrency, which unfortunately counts virtual cores
     return boost::thread::hardware_concurrency();
 #endif
+}
+
+void SetThreadPriority(int nPriority)
+{
+#ifdef WIN32
+    SetThreadPriority(GetCurrentThread(), nPriority);
+#else // WIN32
+#ifdef PRIO_THREAD
+    setpriority(PRIO_THREAD, 0, nPriority);
+#else  // PRIO_THREAD
+    setpriority(PRIO_PROCESS, 0, nPriority);
+#endif // PRIO_THREAD
+#endif // WIN32
 }
 
 std::string CopyrightHolders(const std::string& strPrefix)
