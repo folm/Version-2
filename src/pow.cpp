@@ -10,10 +10,23 @@
 #include <primitives/block.h>
 #include <uint256.h>
 
-unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
+unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params,bool fProofOfStake)
 {
     assert(pindexLast != nullptr);
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
+
+    uint256 bnTargetLimit(Params().ProofOfWorkLimit());
+
+        if(fProofOfStake) {
+            bnTargetLimit = GetProofOfStakeLimit(pindexLast->nHeight);
+        }
+       const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
+        if (pindexPrev->pprev == nullptr)
+            return bnTargetLimit.GetCompact(); // first block
+
+        const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, fProofOfStake);
+        if (pindexPrevPrev->pprev == nullptr)
+                return bnTargetLimit.GetCompact(); // second block
 
     // Only change once per difficulty adjustment interval
     if ((pindexLast->nHeight+1) % params.DifficultyAdjustmentInterval() != 0)
