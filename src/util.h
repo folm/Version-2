@@ -30,6 +30,8 @@
 #include <boost/signals2/signal.hpp>
 #include <boost/thread/condition_variable.hpp> // for boost::thread_interrupted
 
+extern std::atomic<bool> hideLogMessage;
+
 // Application startup time (used for uptime calculation)
 int64_t GetStartupTime();
 
@@ -46,6 +48,8 @@ public:
     boost::signals2::signal<std::string (const char* psz)> Translate;
 };
 
+extern bool fDebug;
+extern bool fDebugMnSecurity;
 extern bool fPrintToConsole;
 extern bool fPrintToDebugLog;
 
@@ -57,6 +61,9 @@ extern CTranslationInterface translationInterface;
 
 extern const char * const FOLM_CONF_FILENAME;
 extern const char * const FOLM_PID_FILENAME;
+
+void SetThreadPriority(int nPriority);
+void RenameThread(const char* name);
 
 extern std::atomic<uint32_t> logCategories;
 
