@@ -1,3 +1,4 @@
+![Folm Logo](https://github.com/folm/folm/raw/master/src/qt/res/images/splash-v2.png)
 Folm Core integration/staging tree
 =====================================
 
