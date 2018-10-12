@@ -10,8 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/block.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/block.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/block.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/block.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/script.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/script.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stake.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/stake.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stake.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/stake.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,22 +36,22 @@
         <counts>
           <entry key="am" value="1" />
           <entry key="c" value="2" />
-          <entry key="cpp" value="10" />
-          <entry key="h" value="15" />
+          <entry key="cpp" value="11" />
+          <entry key="h" value="18" />
           <entry key="i" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="28" />
+          <entry key="ObjectiveC" value="32" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="am" value="2" />
-          <entry key="cpp" value="4252" />
-          <entry key="h" value="1308" />
+          <entry key="cpp" value="4254" />
+          <entry key="h" value="1324" />
           <entry key="i" value="4" />
           <entry key="txt" value="16" />
         </counts>
@@ -57,7 +59,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="5563" />
+          <entry key="ObjectiveC" value="5581" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -65,18 +67,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/miner.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="524" column="1" selection-start-line="524" selection-start-column="1" selection-end-line="524" selection-end-column="1" />
-              <folding>
-                <element signature="e#837#863#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/miner.h">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,17 +82,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/primitives/block.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="542">
+              <caret line="151" column="4" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/script/script.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/crypto/aes.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-2143" />
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/primitives/block.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
-              <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -113,35 +121,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stake.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="922" selection-start-line="922" selection-end-line="922" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/stake.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="602">
+              <caret line="101" column="73" lean-forward="true" selection-start-line="101" selection-start-column="73" selection-end-line="101" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chainparams.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
               <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pow.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/validation.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="245" selection-start-line="245" selection-end-line="245" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/crypto/sph_echo.h">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -171,6 +174,9 @@
       <find>unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();</find>
       <find>int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params&amp; consensusParams, const CBlockIndex* pindexPrev);</find>
       <find>docu</find>
+      <find>std::string</find>
+      <find>bool usep</find>
+      <find>auto hash</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,11 +191,8 @@
         <option value="$PROJECT_DIR$/src/chain.h" />
         <option value="$PROJECT_DIR$/src/compat.h" />
         <option value="$PROJECT_DIR$/src/net.h" />
-        <option value="$PROJECT_DIR$/src/primitives/block.h" />
         <option value="$PROJECT_DIR$/src/multipliers.i" />
         <option value="$PROJECT_DIR$/src/primitives/transaction.h" />
-        <option value="$PROJECT_DIR$/src/stake.cpp" />
-        <option value="$PROJECT_DIR$/src/stake.h" />
         <option value="$PROJECT_DIR$/src/uint256.h" />
         <option value="$PROJECT_DIR$/src/util.cpp" />
         <option value="$PROJECT_DIR$/src/util.h" />
@@ -200,6 +203,10 @@
         <option value="$PROJECT_DIR$/src/pow.cpp" />
         <option value="$PROJECT_DIR$/src/pow.h" />
         <option value="$PROJECT_DIR$/src/primitives/block.cpp" />
+        <option value="$PROJECT_DIR$/src/primitives/block.h" />
+        <option value="$PROJECT_DIR$/src/script/script.h" />
+        <option value="$PROJECT_DIR$/src/stake.cpp" />
+        <option value="$PROJECT_DIR$/src/stake.h" />
       </list>
     </option>
   </component>
@@ -244,6 +251,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="primitives" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="folmv2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="folmv2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -279,12 +292,12 @@
       <updated>1538747595461</updated>
       <workItem from="1538747599539" duration="4030000" />
       <workItem from="1538980963995" duration="11133000" />
-      <workItem from="1539086284600" duration="8785000" />
+      <workItem from="1539086284600" duration="9726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19923000" />
+    <option name="totallyTimeSpent" value="20864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1080" height="1922" extended-state="6" />
@@ -370,13 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/primitives/block.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="138" column="65" selection-start-line="138" selection-start-column="65" selection-end-line="138" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/secp256k1/src/tests.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34230">
@@ -405,20 +411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stake.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="962" column="39" selection-start-line="962" selection-start-column="39" selection-end-line="962" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stake.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
-          <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -517,7 +509,35 @@
     <entry file="file://$PROJECT_DIR$/src/primitives/block.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/primitives/block.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="151" column="4" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/script.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stake.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="922" selection-start-line="922" selection-end-line="922" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stake.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="101" column="73" lean-forward="true" selection-start-line="101" selection-start-column="73" selection-end-line="101" selection-end-column="73" />
         </state>
       </provider>
     </entry>

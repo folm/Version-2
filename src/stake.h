@@ -99,7 +99,7 @@ public:
 
     //!<DuzyDoc>: Stake::IsBlockStaked - check if block is staked.
     bool IsBlockStaked(int nHeight) const;
-    bool IsBlockStaked(const CBlock* block) const;
+    bool IsBlockStaked(const std::shared_ptr<const CBlock>& block) const;
 
     bool MarkBlockStaked(int nHeight, unsigned int nTime);
 
