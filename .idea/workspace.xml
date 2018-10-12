@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/primitives/block.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/block.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/script.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/script.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stake.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/stake.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stake.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/stake.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uint256.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/uint256.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,21 +33,21 @@
         <counts>
           <entry key="am" value="1" />
           <entry key="c" value="2" />
-          <entry key="cpp" value="11" />
+          <entry key="cpp" value="12" />
           <entry key="h" value="18" />
           <entry key="i" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="32" />
+          <entry key="ObjectiveC" value="33" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="am" value="2" />
-          <entry key="cpp" value="4254" />
+          <entry key="cpp" value="4431" />
           <entry key="h" value="1324" />
           <entry key="i" value="4" />
           <entry key="txt" value="16" />
@@ -59,7 +56,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="5581" />
+          <entry key="ObjectiveC" value="5758" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -116,11 +113,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pow.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/stake.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
@@ -129,11 +121,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/stake.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="101" column="73" lean-forward="true" selection-start-line="101" selection-start-column="73" selection-end-line="101" selection-end-column="73" />
+            <state relative-caret-position="332">
+              <caret line="83" column="57" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1052">
+              <caret line="172" column="54" lean-forward="true" selection-start-line="172" selection-start-column="54" selection-end-line="172" selection-end-column="54" />
+              <folding>
+                <element signature="e#3171#3190#0" expanded="true" />
+                <element signature="e#3557#3576#0" expanded="true" />
+                <element signature="e#4050#4069#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -177,6 +183,7 @@
       <find>std::string</find>
       <find>bool usep</find>
       <find>auto hash</find>
+      <find>bool Isblockstaked</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,6 +214,7 @@
         <option value="$PROJECT_DIR$/src/script/script.h" />
         <option value="$PROJECT_DIR$/src/stake.cpp" />
         <option value="$PROJECT_DIR$/src/stake.h" />
+        <option value="$PROJECT_DIR$/src/uint256.cpp" />
       </list>
     </option>
   </component>
@@ -292,12 +300,12 @@
       <updated>1538747595461</updated>
       <workItem from="1538747599539" duration="4030000" />
       <workItem from="1538980963995" duration="11133000" />
-      <workItem from="1539086284600" duration="9726000" />
+      <workItem from="1539086284600" duration="11787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20864000" />
+    <option name="totallyTimeSpent" value="22925000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1080" height="1922" extended-state="6" />
@@ -536,8 +544,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/stake.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="101" column="73" lean-forward="true" selection-start-line="101" selection-start-column="73" selection-end-line="101" selection-end-column="73" />
+        <state relative-caret-position="332">
+          <caret line="83" column="57" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1052">
+          <caret line="172" column="54" lean-forward="true" selection-start-line="172" selection-start-column="54" selection-end-line="172" selection-end-column="54" />
+          <folding>
+            <element signature="e#3171#3190#0" expanded="true" />
+            <element signature="e#3557#3576#0" expanded="true" />
+            <element signature="e#4050#4069#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
