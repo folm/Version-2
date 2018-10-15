@@ -155,16 +155,28 @@ public:
 class uint256 : public base_blob<256> {
 public:
     uint256() {}
+    uint256(const base_blob<256>& b) : base_blob<256>(b) {}
+    uint256(uint64_t b) : base_blob<256>(b) {}
     explicit uint256(const std::vector<unsigned char>& vch) : base_blob<256>(vch) {}
 
+    explicit uint256(const std::string& str) : base_blob<256>(str) {}
     /** A cheap hash function that just returns 64 bits from the result, it can be
      * used when the contents are considered uniformly random. It is not appropriate
      * when the value can easily be influenced from outside as e.g. a network adversary could
      * provide values to trigger worst-case behavior.
      */
-    uint64_t GetCheapHash() const
+    uint64_t GetCheapHash() const{
+            return  ReadLE64(data);
+        }
+        uint64_t GetHash(const uint256& salt) const;
+
+        uint256& operator=(uint64_t b)
     {
-        return ReadLE64(data);
+         data[0] = (unsigned int)b;
+                data[1] = (unsigned int)(b >> 32);
+                for (int i = 2; i < WIDTH; i++)
+                    data[i] = 0;
+                return *this;
     }
 };
 

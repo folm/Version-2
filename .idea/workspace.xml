@@ -48,7 +48,7 @@
         <counts>
           <entry key="am" value="2" />
           <entry key="cpp" value="4446" />
-          <entry key="h" value="1398" />
+          <entry key="h" value="1427" />
           <entry key="i" value="4" />
           <entry key="txt" value="16" />
         </counts>
@@ -56,7 +56,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="5847" />
+          <entry key="ObjectiveC" value="5876" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -133,8 +133,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/uint256.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
-              <caret line="125" column="4" lean-forward="true" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
+            <state relative-caret-position="634">
+              <caret line="180" column="2" lean-forward="true" selection-start-line="180" selection-start-column="2" selection-end-line="180" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -317,18 +317,18 @@
       <updated>1538747595461</updated>
       <workItem from="1538747599539" duration="4030000" />
       <workItem from="1538980963995" duration="11133000" />
-      <workItem from="1539086284600" duration="13906000" />
+      <workItem from="1539086284600" duration="14630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25044000" />
+    <option name="totallyTimeSpent" value="25768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1080" height="1922" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20019342" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20019342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -340,7 +340,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24888393" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24888393" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32924107" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -587,8 +587,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/uint256.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
-          <caret line="125" column="4" lean-forward="true" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
+        <state relative-caret-position="634">
+          <caret line="180" column="2" lean-forward="true" selection-start-line="180" selection-start-column="2" selection-end-line="180" selection-end-column="2" />
         </state>
       </provider>
     </entry>
