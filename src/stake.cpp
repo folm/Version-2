@@ -884,8 +884,8 @@ bool Stake::CreateBlockStake(CWallet* wallet, CBlock* block) {
                         block->nTime = txTime;
                         CMutableTransaction buftx = CMutableTransaction(block->vtx[0]);
                         buftx.vout[0].SetEmpty();
-                        block->vtx[0] = CTransaction(buftx);
-                        block->vtx[1] = CTransaction(tx);
+                    block->gtx[0] = CTransaction(buftx);
+                    block->gtx[1] = CTransaction(tx);
                         result = true;
                    }
                 nStakeInterval = nTime - nLastStakeTime;

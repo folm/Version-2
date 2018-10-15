@@ -10,6 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/pow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/pow.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpc/mining.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/rpc/mining.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stake.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/stake.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uint256.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/uint256.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -33,21 +36,21 @@
         <counts>
           <entry key="am" value="1" />
           <entry key="c" value="2" />
-          <entry key="cpp" value="12" />
+          <entry key="cpp" value="14" />
           <entry key="h" value="18" />
           <entry key="i" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="33" />
+          <entry key="ObjectiveC" value="35" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="am" value="2" />
-          <entry key="cpp" value="4431" />
+          <entry key="cpp" value="4446" />
           <entry key="h" value="1324" />
           <entry key="i" value="4" />
           <entry key="txt" value="16" />
@@ -56,7 +59,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="5758" />
+          <entry key="ObjectiveC" value="5773" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -64,15 +67,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/miner.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1553">
-              <caret line="227" selection-start-line="227" selection-end-line="227" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/txdb.h">
           <provider selected="true" editor-type-id="text-editor" />
@@ -115,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/stake.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="922" selection-start-line="922" selection-end-line="922" />
+            <state relative-caret-position="435">
+              <caret line="887" column="20" selection-start-line="887" selection-start-column="20" selection-end-line="887" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -133,8 +127,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1052">
-              <caret line="172" column="54" lean-forward="true" selection-start-line="172" selection-start-column="54" selection-end-line="172" selection-end-column="54" />
+            <state relative-caret-position="1082">
+              <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
               <folding>
                 <element signature="e#3171#3190#0" expanded="true" />
                 <element signature="e#3557#3576#0" expanded="true" />
@@ -145,10 +139,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/chainparams.cpp">
+        <entry file="file://$PROJECT_DIR$/src/pow.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+            <state relative-caret-position="645">
+              <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+              <folding>
+                <element signature="e#239#255#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rpc/mining.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="545" column="42" lean-forward="true" selection-start-line="545" selection-start-column="42" selection-end-line="545" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -157,8 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>(FOLM_INCLUDES) -DBUILD_FOLM_INTERNA</find>
-      <find>crypto/sph_types</find>
       <find>stake.cpp</find>
       <find>block header</find>
       <find>nSequenceId</find>
@@ -184,6 +188,11 @@
       <find>bool usep</find>
       <find>auto hash</find>
       <find>bool Isblockstaked</find>
+      <find>return (get</find>
+      <find>updatetime</find>
+      <find>block</find>
+      <find>block-&gt;vtx[0]</find>
+      <find>uint256 bn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,13 +216,14 @@
         <option value="$PROJECT_DIR$/src/validation.h" />
         <option value="$PROJECT_DIR$/src/miner.cpp" />
         <option value="$PROJECT_DIR$/src/miner.h" />
-        <option value="$PROJECT_DIR$/src/pow.cpp" />
         <option value="$PROJECT_DIR$/src/pow.h" />
         <option value="$PROJECT_DIR$/src/primitives/block.cpp" />
         <option value="$PROJECT_DIR$/src/primitives/block.h" />
         <option value="$PROJECT_DIR$/src/script/script.h" />
-        <option value="$PROJECT_DIR$/src/stake.cpp" />
         <option value="$PROJECT_DIR$/src/stake.h" />
+        <option value="$PROJECT_DIR$/src/pow.cpp" />
+        <option value="$PROJECT_DIR$/src/rpc/mining.cpp" />
+        <option value="$PROJECT_DIR$/src/stake.cpp" />
         <option value="$PROJECT_DIR$/src/uint256.cpp" />
       </list>
     </option>
@@ -263,6 +273,12 @@
               <item name="folmv2" type="b2602c69:ProjectViewProjectNode" />
               <item name="folmv2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="folmv2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="folmv2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -300,12 +316,12 @@
       <updated>1538747595461</updated>
       <workItem from="1538747599539" duration="4030000" />
       <workItem from="1538980963995" duration="11133000" />
-      <workItem from="1539086284600" duration="11787000" />
+      <workItem from="1539086284600" duration="12983000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22925000" />
+    <option name="totallyTimeSpent" value="24121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1080" height="1922" extended-state="6" />
@@ -489,9 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pow.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chainparams.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -535,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/stake.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="922" selection-start-line="922" selection-end-line="922" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/stake.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -549,10 +555,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pow.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding>
+            <element signature="e#239#255#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rpc/mining.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="545" column="42" lean-forward="true" selection-start-line="545" selection-start-column="42" selection-end-line="545" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stake.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="887" column="20" selection-start-line="887" selection-start-column="20" selection-end-line="887" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1052">
-          <caret line="172" column="54" lean-forward="true" selection-start-line="172" selection-start-column="54" selection-end-line="172" selection-end-column="54" />
+        <state relative-caret-position="1082">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
           <folding>
             <element signature="e#3171#3190#0" expanded="true" />
             <element signature="e#3557#3576#0" expanded="true" />

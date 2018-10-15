@@ -7,15 +7,25 @@
 
 #include <arith_uint256.h>
 #include <chain.h>
+#include <validation.h>
 #include <primitives/block.h>
 #include <uint256.h>
+
+// Folm modified: find last block index up to pindex
+const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake)
+{
+    while (pindex && pindex->pprev && (pindex->IsProofOfStake() != fProofOfStake))
+        pindex = pindex->pprev;
+    return pindex;
+}
+
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params,bool fProofOfStake)
 {
     assert(pindexLast != nullptr);
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
 
-    uint256 bnTargetLimit(Params().ProofOfWorkLimit());
+        uint256 bnTargetLimit(params.powLimit);
 
         if(fProofOfStake) {
             bnTargetLimit = GetProofOfStakeLimit(pindexLast->nHeight);
