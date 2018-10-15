@@ -29,6 +29,8 @@ public:
 
     explicit base_blob(const std::vector<unsigned char>& vch);
 
+    explicit base_blob(const std::string& str);
+
     bool IsNull() const
     {
         for (int i = 0; i < WIDTH; i++)
@@ -47,6 +49,7 @@ public:
     friend inline bool operator==(const base_blob& a, const base_blob& b) { return a.Compare(b) == 0; }
     friend inline bool operator!=(const base_blob& a, const base_blob& b) { return a.Compare(b) != 0; }
     friend inline bool operator<(const base_blob& a, const base_blob& b) { return a.Compare(b) < 0; }
+    friend inline bool operator==(const base_blob& a, uint64_t b) { return a.EqualTo(b); }
 
     std::string GetHex() const;
     void SetHex(const char* psz);
@@ -78,6 +81,15 @@ public:
         return sizeof(data);
     }
 
+    const base_blob operator~() const
+        {
+            base_blob ret;
+            for (int i = 0; i < WIDTH; i++)
+                ret.data[i] = ~data[i];
+            return ret;
+        }
+
+
     uint64_t Get64(int n = 0) const
     {
         return data[2 * n] | (uint64_t)data[2 * n + 1] << 32;
@@ -95,6 +107,22 @@ public:
                ((uint64_t)ptr[6]) << 48 | \
                ((uint64_t)ptr[7]) << 56;
     }
+
+    base_blob& operator=(const base_blob& b)
+        {
+            for (int i = 0; i < WIDTH; i++)
+                data[i] = b.data[i];
+            return *this;
+        }
+
+
+        base_blob(uint64_t b)
+        {
+                data[0] = (unsigned int)b;
+                data[1] = (unsigned int)(b >> 32);
+                for (int i = 2; i < WIDTH; i++)
+                    data[i] = 0;
+            }
 
     template<typename Stream>
     void Serialize(Stream& s) const
