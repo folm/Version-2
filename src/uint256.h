@@ -166,6 +166,15 @@ public:
      * provide values to trigger worst-case behavior.
      */
     uint64_t GetCheapHash() const{
+        data[0] = (unsigned int)b;
+                data[1] = (unsigned int)(b >> 32);
+                for (int i = 2; i < WIDTH; i++)
+                    data[i] = 0;
+                return *this;
+            }
+        uint64_t GetHash(const uint256& salt) const;
+
+        uint256& operator=(uint64_t b)    {
             return  ReadLE64(data);
         }
         uint64_t GetHash(const uint256& salt) const;
