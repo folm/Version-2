@@ -300,6 +300,13 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex* pin
 /** Calculate the amount of disk space the block & undo files currently use */
 uint64_t CalculateCurrentUsage();
 
+/****** POS ***/
+
+uint256 GetProofOfStakeLimit(int nHeight);
+
+inline bool IsProtocolV2(int nHeight) { return nHeight > 0; }
+
+
 /**
  *  Mark one block file as pruned.
  */

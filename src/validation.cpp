@@ -3518,7 +3518,8 @@ bool ProcessNewBlockStake(CValidationState& state, const CChainParams& chainpara
 
     if (ActivateBestChain(state, chainparams, pblock)) {
         stake->MarkBlockStaked(pindex->nHeight, pindex->nTime);
-    } else {
+    } else {  * BLOCK PRUNING CODE
+
         return error("%s: ActivateBestChain failed", __func__);
     }
 
@@ -3564,6 +3565,19 @@ bool TestBlockValidity(CValidationState& state, const CChainParams& chainparams,
     assert(state.IsValid());
 
     return true;
+}
+
+/****** POS ***/
+
+uint256 bnProofOfStakeLimit = (~uint256(0) >> 20);
+uint256 bnProofOfStakeLimitV2 = (~uint256(0) >> 34);
+
+uint256 GetProofOfStakeLimit(int nHeight)
+{
+    if (IsProtocolV2(nHeight))
+        return bnProofOfStakeLimitV2;
+    else
+        return bnProofOfStakeLimit;
 }
 
 /**

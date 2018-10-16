@@ -10,7 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/uint256.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/uint256.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/validation.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/validation.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,22 +34,22 @@
         <counts>
           <entry key="am" value="1" />
           <entry key="c" value="2" />
-          <entry key="cpp" value="14" />
-          <entry key="h" value="19" />
+          <entry key="cpp" value="15" />
+          <entry key="h" value="20" />
           <entry key="i" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="36" />
+          <entry key="ObjectiveC" value="38" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="am" value="2" />
-          <entry key="cpp" value="4446" />
-          <entry key="h" value="1443" />
+          <entry key="cpp" value="4459" />
+          <entry key="h" value="1450" />
           <entry key="i" value="4" />
           <entry key="txt" value="16" />
         </counts>
@@ -56,7 +57,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="5892" />
+          <entry key="ObjectiveC" value="5912" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -78,22 +79,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/crypto/aes.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2143" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/primitives/block.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -130,11 +115,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/uint256.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="721">
               <caret line="187" column="29" lean-forward="true" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/validation.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="766">
+              <caret line="3591" column="24" selection-start-line="3591" selection-start-column="24" selection-end-line="3591" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/validation.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="556">
+              <caret line="312" column="45" lean-forward="true" selection-start-line="312" selection-start-column="45" selection-end-line="312" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -155,7 +158,7 @@
         <entry file="file://$PROJECT_DIR$/src/rpc/mining.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
-              <caret line="545" column="42" lean-forward="true" selection-start-line="545" selection-start-column="42" selection-end-line="545" selection-end-column="42" />
+              <caret line="545" column="42" selection-start-line="545" selection-start-column="42" selection-end-line="545" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -164,9 +167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nSequenceId</find>
-      <find>return block</find>
-      <find>if (nstatus</find>
       <find>cblockIndex *tip</find>
       <find>pblock</find>
       <find>blockmerkleroo</find>
@@ -194,6 +194,9 @@
       <find>uint256 bn</find>
       <find>template base_blob&lt;256&gt;&amp; base_blob&lt;256&gt;::operator&lt;&lt;=(unsigned int);</find>
       <find>return sizeof</find>
+      <find>uint64_t GetCheapHash() const</find>
+      <find>* BLOCK PRUNING CODE</find>
+      <find>*  Mark one block file as pruned.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,8 +215,6 @@
         <option value="$PROJECT_DIR$/src/primitives/transaction.h" />
         <option value="$PROJECT_DIR$/src/util.cpp" />
         <option value="$PROJECT_DIR$/src/util.h" />
-        <option value="$PROJECT_DIR$/src/validation.cpp" />
-        <option value="$PROJECT_DIR$/src/validation.h" />
         <option value="$PROJECT_DIR$/src/miner.cpp" />
         <option value="$PROJECT_DIR$/src/miner.h" />
         <option value="$PROJECT_DIR$/src/pow.h" />
@@ -226,6 +227,8 @@
         <option value="$PROJECT_DIR$/src/stake.cpp" />
         <option value="$PROJECT_DIR$/src/uint256.cpp" />
         <option value="$PROJECT_DIR$/src/uint256.h" />
+        <option value="$PROJECT_DIR$/src/validation.cpp" />
+        <option value="$PROJECT_DIR$/src/validation.h" />
       </list>
     </option>
   </component>
@@ -317,18 +320,18 @@
       <updated>1538747595461</updated>
       <workItem from="1538747599539" duration="4030000" />
       <workItem from="1538980963995" duration="11133000" />
-      <workItem from="1539086284600" duration="15324000" />
+      <workItem from="1539086284600" duration="17113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26462000" />
+    <option name="totallyTimeSpent" value="28251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1080" height="1922" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20019342" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20019342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -340,7 +343,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24888393" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24888393" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32924107" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -465,20 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/validation.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="3492" selection-start-line="3492" selection-end-line="3492" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/validation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="245" selection-start-line="245" selection-end-line="245" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/crypto/sph_echo.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -562,7 +551,7 @@
     <entry file="file://$PROJECT_DIR$/src/rpc/mining.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
-          <caret line="545" column="42" lean-forward="true" selection-start-line="545" selection-start-column="42" selection-end-line="545" selection-end-column="42" />
+          <caret line="545" column="42" selection-start-line="545" selection-start-column="42" selection-end-line="545" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -589,6 +578,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="721">
           <caret line="187" column="29" lean-forward="true" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validation.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="3591" column="24" selection-start-line="3591" selection-start-column="24" selection-end-line="3591" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="312" column="45" lean-forward="true" selection-start-line="312" selection-start-column="45" selection-end-line="312" selection-end-column="45" />
         </state>
       </provider>
     </entry>
