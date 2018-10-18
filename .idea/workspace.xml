@@ -9,7 +9,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="" />
+    <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/uint256.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/uint256.cpp" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +47,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="am" value="2" />
-          <entry key="cpp" value="4459" />
+          <entry key="cpp" value="4498" />
           <entry key="h" value="1450" />
           <entry key="i" value="4" />
           <entry key="txt" value="16" />
@@ -54,7 +56,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="5912" />
+          <entry key="ObjectiveC" value="5951" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -80,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/stake.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="887" column="20" selection-start-line="887" selection-start-column="20" selection-end-line="887" selection-end-column="20" />
+            <state relative-caret-position="555">
+              <caret line="893" column="22" lean-forward="true" selection-start-line="893" selection-start-column="22" selection-end-line="893" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -98,15 +100,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1145">
-              <caret line="176" column="67" selection-start-line="176" selection-start-column="67" selection-end-line="176" selection-end-column="67" />
+            <state relative-caret-position="905">
+              <caret line="182" column="1" selection-start-line="182" selection-start-column="1" selection-end-line="182" selection-end-column="1" />
               <folding>
                 <element signature="e#3171#3190#0" expanded="true" />
                 <element signature="e#3557#3576#0" expanded="true" />
                 <element signature="e#4050#4069#0" expanded="true" />
+                <element signature="e#4372#4391#0" expanded="true" />
+                <element signature="e#4655#4674#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,13 +191,13 @@
       <find>return (get</find>
       <find>updatetime</find>
       <find>block</find>
-      <find>block-&gt;vtx[0]</find>
       <find>uint256 bn</find>
-      <find>template base_blob&lt;256&gt;&amp; base_blob&lt;256&gt;::operator&lt;&lt;=(unsigned int);</find>
       <find>return sizeof</find>
       <find>uint64_t GetCheapHash() const</find>
       <find>* BLOCK PRUNING CODE</find>
       <find>*  Mark one block file as pruned.</find>
+      <find>block-&gt;vtx[0]</find>
+      <find>template base_blob&lt;256&gt;&amp; base_blob&lt;256&gt;::operator&lt;&lt;=(unsigned int);</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -221,11 +225,11 @@
         <option value="$PROJECT_DIR$/src/stake.h" />
         <option value="$PROJECT_DIR$/src/pow.cpp" />
         <option value="$PROJECT_DIR$/src/rpc/mining.cpp" />
-        <option value="$PROJECT_DIR$/src/stake.cpp" />
-        <option value="$PROJECT_DIR$/src/uint256.cpp" />
         <option value="$PROJECT_DIR$/src/uint256.h" />
         <option value="$PROJECT_DIR$/src/validation.cpp" />
         <option value="$PROJECT_DIR$/src/validation.h" />
+        <option value="$PROJECT_DIR$/src/stake.cpp" />
+        <option value="$PROJECT_DIR$/src/uint256.cpp" />
       </list>
     </option>
   </component>
@@ -317,18 +321,18 @@
       <updated>1538747595461</updated>
       <workItem from="1538747599539" duration="4030000" />
       <workItem from="1538980963995" duration="11133000" />
-      <workItem from="1539086284600" duration="17757000" />
+      <workItem from="1539086284600" duration="18491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28895000" />
+    <option name="totallyTimeSpent" value="29629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1080" height="1922" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20019342" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20019342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -340,7 +344,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24888393" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24888393" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32924107" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -552,18 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1145">
-          <caret line="176" column="67" selection-start-line="176" selection-start-column="67" selection-end-line="176" selection-end-column="67" />
-          <folding>
-            <element signature="e#3171#3190#0" expanded="true" />
-            <element signature="e#3557#3576#0" expanded="true" />
-            <element signature="e#4050#4069#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/uint256.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="721">
@@ -587,8 +579,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/stake.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="887" column="20" selection-start-line="887" selection-start-column="20" selection-end-line="887" selection-end-column="20" />
+        <state relative-caret-position="555">
+          <caret line="893" column="22" lean-forward="true" selection-start-line="893" selection-start-column="22" selection-end-line="893" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="905">
+          <caret line="182" column="1" selection-start-line="182" selection-start-column="1" selection-end-line="182" selection-end-column="1" />
+          <folding>
+            <element signature="e#3171#3190#0" expanded="true" />
+            <element signature="e#3557#3576#0" expanded="true" />
+            <element signature="e#4050#4069#0" expanded="true" />
+            <element signature="e#4372#4391#0" expanded="true" />
+            <element signature="e#4655#4674#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

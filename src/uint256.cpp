@@ -157,6 +157,30 @@ base_blob<BITS>& base_blob<BITS>::operator>>=(unsigned int shift)
     return *this;
 }
 
+template <unsigned int BITS>
+int base_blob<BITS>::CompareTo(const base_blob<BITS>& b) const
+{
+    for (int i = WIDTH - 1; i >= 0; i--) {
+        if (data[i] < b.data[i])
+            return -1;
+        if (data[i] > b.data[i])
+            return 1;
+    }
+    return 0;
+}
+
+template <unsigned int BITS>
+bool base_blob<BITS>::EqualTo(uint64_t b) const {
+    for (int i = WIDTH - 1; i >= 2; i--) {
+        if (data[i])
+            return false;
+    }
+    if (data[1] != (b >> 32))
+        return false;
+    if (data[0] != (b & 0xfffffffful))
+        return false;
+    return true;
+}
 
 // Explicit instantiations for base_blob<160>
 template base_blob<160>::base_blob(const std::vector<unsigned char>&);
