@@ -41,6 +41,7 @@ struct ChainTxData {
 class CChainParams
 {
 public:
+
     enum Base58Type {
         PUBKEY_ADDRESS,
         SCRIPT_ADDRESS,
@@ -50,6 +51,7 @@ public:
 
         MAX_BASE58_TYPES
     };
+    const std::vector<SeedSpec6>& FixedSeeds() const { return vFixedSeeds; }
 
     const Consensus::Params& GetConsensus() const { return consensus; }
     const CMessageHeader::MessageStartChars& MessageStart() const { return pchMessageStart; }
@@ -70,6 +72,7 @@ public:
     const std::vector<unsigned char>& Base58Prefix(Base58Type type) const { return base58Prefixes[type]; }
     const std::string& Bech32HRP() const { return bech32_hrp; }
     const std::vector<SeedSpec6>& FixedSeeds() const { return vFixedSeeds; }
+    CBaseChainParams::Network NetworkID() const { return networkID; }
     const CCheckpointData& Checkpoints() const { return checkpointData; }
     const ChainTxData& TxData() const { return chainTxData; }
     void UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout);
@@ -84,6 +87,7 @@ protected:
     std::vector<unsigned char> base58Prefixes[MAX_BASE58_TYPES];
     std::string bech32_hrp;
     std::string strNetworkID;
+    CBaseChainParams::Network networkID;
     CBlock genesis;
     std::vector<SeedSpec6> vFixedSeeds;
     bool fDefaultConsistencyChecks;
@@ -116,5 +120,7 @@ void SelectParams(const std::string& chain);
  * Allows modifying the Version Bits regtest parameters.
  */
 void UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout);
+
+inline bool IsTestNet() { return Params().NetworkID() == CBaseChainParams::TESTNET; }
 
 #endif // FOLM_CHAINPARAMS_H
