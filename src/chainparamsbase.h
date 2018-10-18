@@ -16,10 +16,20 @@
 class CBaseChainParams
 {
 public:
+    enum Network {
+                MAIN,
+                TESTNET,
+                REGTEST,
+                UNITTEST,
+                SEGWITTEST,
+
+                MAX_NETWORK_TYPES
+            };
+
     /** BIP70 chain name strings (main, test or regtest) */
-    static const std::string MAIN;
+    /* static const std::string MAIN;
     static const std::string TESTNET;
-    static const std::string REGTEST;
+    static const std::string REGTEST;*/
 
     const std::string& DataDir() const { return strDataDir; }
     int RPCPort() const { return nRPCPort; }
@@ -29,6 +39,7 @@ protected:
 
     int nRPCPort;
     std::string strDataDir;
+    Network networkID;
 };
 
 /**
