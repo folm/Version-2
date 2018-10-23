@@ -49,39 +49,59 @@ public:
     int CompareTo(const base_blob& b) const;
     bool EqualTo(uint64_t b) const;
 
-    friend inline bool operator==(const base_blob& a, const base_blob& b) { return a.Compare(b) == 0; }
-    friend inline bool operator!=(const base_blob& a, const base_blob& b) { return a.Compare(b) != 0; }
-    friend inline bool operator<(const base_blob& a, const base_blob& b) { return a.Compare(b) < 0; }
-    friend inline bool operator==(const base_blob& a, uint64_t b) { return a.EqualTo(b); }
+    friend inline const base_uint operator+(const base_uint& a, const base_uint& b) { return base_uint(a) += b; }
+    friend inline const base_uint operator-(const base_uint& a, const base_uint& b) { return base_uint(a) -= b; }
+    friend inline const base_uint operator*(const base_uint& a, const base_uint& b) { return base_uint(a) *= b; }
+    friend inline const base_uint operator/(const base_uint& a, const base_uint& b) { return base_uint(a) /= b; }
+    friend inline const base_uint operator|(const base_uint& a, const base_uint& b) { return base_uint(a) |= b; }
+    friend inline const base_uint operator&(const base_uint& a, const base_uint& b) { return base_uint(a) &= b; }
+    friend inline const base_uint operator^(const base_uint& a, const base_uint& b) { return base_uint(a) ^= b; }
+    friend inline const base_uint operator>>(const base_uint& a, int shift) { return base_uint(a) >>= shift; }
+    friend inline const base_uint operator<<(const base_uint& a, int shift) { return base_uint(a) <<= shift; }
+    friend inline const base_uint operator*(const base_uint& a, uint32_t b) { return base_uint(a) *= b; }
+    friend inline bool operator==(const base_uint& a, const base_uint& b) { return a.CompareTo(b) == 0; }
+    friend inline bool operator!=(const base_uint& a, const base_uint& b) { return a.CompareTo(b) != 0; }
+    friend inline bool operator>(const base_uint& a, const base_uint& b)  { return a.CompareTo(b) >  0; }
+    friend inline bool operator<(const base_uint& a, const base_uint& b)  { return a.CompareTo(b) <  0; }
+    friend inline bool operator>=(const base_uint& a, const base_uint& b) { return a.CompareTo(b) >= 0; }
+    friend inline bool operator<=(const base_uint& a, const base_uint& b) { return a.CompareTo(b) <= 0; }
+    friend inline bool operator==(const base_uint& a, uint64_t b) { return a.EqualTo(b); }
+    friend inline bool operator!=(const base_uint& a, uint64_t b) { return !a.EqualTo(b); }
 
     std::string GetHex() const;
     void SetHex(const char* psz);
     void SetHex(const std::string& str);
     std::string ToString() const;
+    std::string ToStringReverseEndian() const;
 
     unsigned char* begin()
     {
-        return &data[0];
+        return (unsigned char*)&pn[0];
     }
 
     unsigned char* end()
     {
-        return &data[WIDTH];
+        return (unsigned char*)&pn[WIDTH];
     }
 
     const unsigned char* begin() const
     {
-        return &data[0];
+        return (unsigned char*)&pn[0];
     }
 
     const unsigned char* end() const
     {
-        return &data[WIDTH];
+        return (unsigned char*)&pn[WIDTH];
     }
 
     unsigned int size() const
     {
-        return sizeof(data);
+        return sizeof(pn);
+    }
+
+    uint64_t Get64(int n = 0) const
+    {
+        return pn[2 * n] | (uint64_t)pn[2 * n + 1] << 32;
     }
 
     const base_blob operator~() const
