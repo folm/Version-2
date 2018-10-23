@@ -9,7 +9,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="" />
+    <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/uint256.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/uint256.cpp" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +49,8 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="am" value="2" />
-          <entry key="cpp" value="4511" />
-          <entry key="h" value="1475" />
+          <entry key="cpp" value="4513" />
+          <entry key="h" value="1476" />
           <entry key="i" value="4" />
           <entry key="txt" value="16" />
         </counts>
@@ -56,7 +58,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="5989" />
+          <entry key="ObjectiveC" value="5992" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -73,27 +75,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2730">
-              <caret line="182" column="1" selection-start-line="182" selection-start-column="1" selection-end-line="182" selection-end-column="1" />
-              <folding>
-                <element signature="e#3171#3190#0" expanded="true" />
-                <element signature="e#3557#3576#0" expanded="true" />
-                <element signature="e#4050#4069#0" expanded="true" />
-                <element signature="e#4372#4391#0" expanded="true" />
-                <element signature="e#4655#4674#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="839">
+              <caret line="98" column="21" lean-forward="true" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/uint256.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="190" selection-start-line="190" selection-end-line="190" />
+            <state relative-caret-position="809">
+              <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -236,11 +231,11 @@
         <option value="$PROJECT_DIR$/src/validation.cpp" />
         <option value="$PROJECT_DIR$/src/validation.h" />
         <option value="$PROJECT_DIR$/src/stake.cpp" />
-        <option value="$PROJECT_DIR$/src/uint256.cpp" />
         <option value="$PROJECT_DIR$/src/chainparams.h" />
         <option value="$PROJECT_DIR$/src/chainparamsbase.h" />
         <option value="$PROJECT_DIR$/src/init.cpp" />
         <option value="$PROJECT_DIR$/src/uint256.h" />
+        <option value="$PROJECT_DIR$/src/uint256.cpp" />
       </list>
     </option>
   </component>
@@ -310,15 +305,16 @@
       <workItem from="1538980963995" duration="11133000" />
       <workItem from="1539086284600" duration="20172000" />
       <workItem from="1539944290483" duration="860000" />
-      <workItem from="1540275464872" duration="1595000" />
+      <workItem from="1540275464872" duration="1818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33765000" />
+    <option name="totallyTimeSpent" value="33988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1080" height="1922" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20793037" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -519,20 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2730">
-          <caret line="182" column="1" selection-start-line="182" selection-start-column="1" selection-end-line="182" selection-end-column="1" />
-          <folding>
-            <element signature="e#3171#3190#0" expanded="true" />
-            <element signature="e#3557#3576#0" expanded="true" />
-            <element signature="e#4050#4069#0" expanded="true" />
-            <element signature="e#4372#4391#0" expanded="true" />
-            <element signature="e#4655#4674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chainparams.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1470">
@@ -595,8 +577,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/uint256.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        <state relative-caret-position="809">
+          <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uint256.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="98" column="21" lean-forward="true" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
         </state>
       </provider>
     </entry>

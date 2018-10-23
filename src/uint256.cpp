@@ -64,6 +64,32 @@ std::string base_blob<BITS>::ToString() const
     return (GetHex());
 }
 
+// Explicit instantiations for base_uint<256>
+template base_uint<256>::base_uint(const std::string&);
+template base_uint<256>::base_uint(const std::vector<unsigned char>&);
+template base_uint<256>& base_uint<256>::operator<<=(unsigned int);
+template base_uint<256>& base_uint<256>::operator>>=(unsigned int);
+template base_uint<256>& base_uint<256>::operator*=(uint32_t b32);
+template base_uint<256>& base_uint<256>::operator*=(const base_uint<256>& b);
+template base_uint<256>& base_uint<256>::operator/=(const base_uint<256>& b);
+template int base_uint<256>::CompareTo(const base_uint<256>&) const;
+template bool base_uint<256>::EqualTo(uint64_t) const;
+template double base_uint<256>::getdouble() const;
+template std::string base_uint<256>::GetHex() const;
+template std::string base_uint<256>::ToString() const;
+template void base_uint<256>::SetHex(const char*);
+template void base_uint<256>::SetHex(const std::string&);
+template unsigned int base_uint<256>::bits() const;
+template std::string base_uint<256>::ToStringReverseEndian() const;
+
+// Explicit instantiations for base_uint<512>
+template base_uint<512>::base_uint(const std::string&);
+template base_uint<512>& base_uint<512>::operator<<=(unsigned int);
+template base_uint<512>& base_uint<512>::operator>>=(unsigned int);
+template std::string base_uint<512>::GetHex() const;
+template std::string base_uint<512>::ToString() const;
+template std::string base_uint<512>::ToStringReverseEndian() const;
+
 // This implementation directly uses shifts instead of going
 // through an intermediate MPI representation.
 uint256& uint256::SetCompact(uint32_t nCompact, bool* pfNegative, bool* pfOverflow)
