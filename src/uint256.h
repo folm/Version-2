@@ -155,42 +155,40 @@ public:
  * opaque blob of 256 bits and has no integer operations. Use arith_uint256 if
  * those are required.
  */
-class uint256 : public base_blob<256> {
+/** 256-bit unsigned big integer. */
+class uint256 : public base_uint<256>
+{
 public:
     uint256() {}
-    uint256(const base_blob<256>& b) : base_blob<256>(b) {}
-    uint256(uint64_t b) : base_blob<256>(b) {}
-    explicit uint256(const std::vector<unsigned char>& vch) : base_blob<256>(vch) {}
+    uint256(const base_uint<256>& b) : base_uint<256>(b) {}
+    uint256(uint64_t b) : base_uint<256>(b) {}
+    explicit uint256(const std::string& str) : base_uint<256>(str) {}
+    explicit uint256(const std::vector<unsigned char>& vch) : base_uint<256>(vch) {}
 
-    explicit uint256(const std::string& str) : base_blob<256>(str) {}
-    /** A cheap hash function that just returns 64 bits from the result, it can be
-     * used when the contents are considered uniformly random. It is not appropriate
-     * when the value can easily be influenced from outside as e.g. a network adversary could
-     * provide values to trigger worst-case behavior.
+    /**
+     * The "compact" format is a representation of a whole
+     * number N using an unsigned 32bit number similar to a
+     * floating point format.
+     * The most significant 8 bits are the unsigned exponent of base 256.
+     * This exponent can be thought of as "number of bytes of N".
+     * The lower 23 bits are the mantissa.
+     * Bit number 24 (0x800000) represents the sign of N.
+     * N = (-1^sign) * mantissa * 256^(exponent-3)
+     *
+     * Satoshi's original implementation used BN_bn2mpi() and BN_mpi2bn().
+     * MPI uses the most significant bit of the first byte as sign.
+     * Thus 0x1234560000 is compact (0x05123456)
+     * and  0xc0de000000 is compact (0x0600c0de)
+     *
+     * Bitcoin only uses this "compact" format for encoding difficulty
+     * targets, which are unsigned 256bit quantities.  Thus, all the
+     * complexities of the sign bit and using base 256 are probably an
+     * implementation accident.
      */
-    uint64_t GetCheapHash() const{
-        data[0] = (unsigned int)b;
-                data[1] = (unsigned int)(b >> 32);
-                for (int i = 2; i < WIDTH; i++)
-                    data[i] = 0;
-                return *this;
-            }
-        uint64_t GetHash(const uint256& salt) const;
+    uint256& SetCompact(uint32_t nCompact, bool* pfNegative = NULL, bool* pfOverflow = NULL);
+    uint32_t GetCompact(bool fNegative = false) const;
+    uint64_t GetHash(const uint256& salt) const;
 
-        uint256& operator=(uint64_t b)    {
-            return  ReadLE64(data);
-        }
-        uint64_t GetHash(const uint256& salt) const;
-
-        uint256& operator=(uint64_t b)
-    {
-         data[0] = (unsigned int)b;
-                data[1] = (unsigned int)(b >> 32);
-                for (int i = 2; i < WIDTH; i++)
-                    data[i] = 0;
-                return *this;
-    }
-};
 
 /* uint256 from const char *.
  * This is a separate function because the constructor uint256(const char*) can result
@@ -214,17 +212,22 @@ inline uint256 uint256S(const std::string& str)
 }
 
 /** 512-bit unsigned big integer. */
-class uint512 : public base_blob<512> {
+class uint512 : public base_uint<512>
+{
 public:
     uint512() {}
-    uint512(const base_blob<512>& b) : base_blob<512>(b) {}
-    explicit uint512(const std::vector<unsigned char>& vch) : base_blob<512>(vch) {}
+    uint512(const base_uint<512>& b) : base_uint<512>(b) {}
+    uint512(uint64_t b) : base_uint<512>(b) {}
+    explicit uint512(const std::string& str) : base_uint<512>(str) {}
+    explicit uint512(const std::vector<unsigned char>& vch) : base_uint<512>(vch) {}
 
     uint256 trim256() const
     {
-        uint256 result;
-        memcpy((void*)&result, (void*)data, 32);
-        return result;
+        uint256 ret;
+        for (unsigned int i = 0; i < uint256::WIDTH; i++) {
+            ret.pn[i] = pn[i];
+        }
+        return ret;
     }
 };
 
