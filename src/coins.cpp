@@ -225,6 +225,12 @@ double CCoinsViewCache::GetPriority(const CTransaction& tx, int nHeight, CAmount
     return tx.ComputePriority(dResult);
 }
 
+CCoinsModifier::CCoinsModifier(CCoinsViewCache& cache_, CCoinsMap::iterator it_) : cache(cache_), it(it_)
+{
+    assert(!cache.hasModifier);
+    cache.hasModifier = true;
+}
+
 void CCoinsViewCache::Uncache(const COutPoint& hash)
 {
     CCoinsMap::iterator it = cacheCoins.find(hash);
@@ -274,6 +280,16 @@ bool CCoinsViewCache::HaveInputs(const CTransaction& tx) const
         }
     }
     return true;
+}
+
+CCoinsModifier::~CCoinsModifier()
+{
+    assert(cache.hasModifier);
+    cache.hasModifier = false;
+    it->second.coins.Cleanup();
+    if ((it->second.flags & CCoinsCacheEntry::FRESH) && it->second.coins.IsPruned()) {
+        cache.cacheCoins.erase(it);
+    }
 }
 
 static const size_t MIN_TRANSACTION_OUTPUT_WEIGHT = WITNESS_SCALE_FACTOR * ::GetSerializeSize(CTxOut(), SER_NETWORK, PROTOCOL_VERSION);
