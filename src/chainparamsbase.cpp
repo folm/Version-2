@@ -100,3 +100,35 @@ std::string ChainNameFromCommandLine()
         return CBaseChainParams::TESTNET;
     return CBaseChainParams::MAIN;
 }
+
+CBaseChainParams::Network NetworkIdFromCommandLine()
+{
+    bool fRegTest = GetBoolArg("-regtest", false);
+    bool fTestNet = GetBoolArg("-testnet", false);
+    bool fSegWitTestNet = GetBoolArg("-segwittest", false);
+
+    if (fTestNet && fRegTest)
+        return CBaseChainParams::MAX_NETWORK_TYPES;
+    if (fRegTest)
+        return CBaseChainParams::REGTEST;
+    if (fTestNet)
+        return CBaseChainParams::TESTNET;
+    if (fSegWitTestNet)
+        return CBaseChainParams::SEGWITTEST;
+    return CBaseChainParams::MAIN;
+}
+
+bool SelectBaseParamsFromCommandLine()
+{
+    CBaseChainParams::Network network = NetworkIdFromCommandLine();
+    if (network == CBaseChainParams::MAX_NETWORK_TYPES)
+        return false;
+
+    SelectBaseParams(network);
+    return true;
+}
+
+bool AreBaseParamsConfigured()
+{
+    return pCurrentBaseParams != NULL;
+}
