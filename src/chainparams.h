@@ -104,6 +104,31 @@ protected:
  */
 std::unique_ptr<CChainParams> CreateChainParams(const std::string& chain);
 
+class CModifiableParams
+{
+public:
+    //! Published setters to allow changing values in unit test cases
+    virtual void setEnforceBlockUpgradeMajority(int anEnforceBlockUpgradeMajority) = 0;
+    virtual void setRejectBlockOutdatedMajority(int anRejectBlockOutdatedMajority) = 0;
+    virtual void setToCheckBlockUpgradeMajority(int anToCheckBlockUpgradeMajority) = 0;
+    virtual void setDefaultConsistencyChecks(bool aDefaultConsistencyChecks) = 0;
+    virtual void setAllowMinDifficultyBlocks(bool aAllowMinDifficultyBlocks) = 0;
+    virtual void setSkipProofOfWorkCheck(bool aSkipProofOfWorkCheck) = 0;
+};
+
+
+/**
+ * Return the currently selected parameters. This won't change after app startup
+ * outside of the unit tests.
+ */
+const CChainParams& Params();
+
+/** Return parameters for the given network. */
+CChainParams& Params(CBaseChainParams::Network network);
+
+/** Get modifiable network parameters (UNITTEST only) */
+CModifiableParams* ModifiableParams();
+
 /**
  * Return the currently selected parameters. This won't change after app
  * startup, except for unit tests.
