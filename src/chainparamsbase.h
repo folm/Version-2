@@ -61,6 +61,12 @@ void AppendParamsHelpMessages(std::string& strUsage, bool debugHelp=true);
  */
 const CBaseChainParams& BaseParams();
 
+/**
+ * Looks for -regtest or -testnet and returns the appropriate Network ID.
+ * Returns MAX_NETWORK_TYPES if an invalid combination is given.
+ */
+CBaseChainParams::Network NetworkIdFromCommandLine();
+
 /** Sets the params returned by Params() to those for the given network. */
 void SelectBaseParams(const std::string& chain);
 
@@ -69,5 +75,11 @@ void SelectBaseParams(const std::string& chain);
  * @return CBaseChainParams::MAX_NETWORK_TYPES if an invalid combination is given. CBaseChainParams::MAIN by default.
  */
 std::string ChainNameFromCommandLine();
+
+/**
+ * Return true if SelectBaseParamsFromCommandLine() has been called to select
+ * a network.
+ */
+bool AreBaseParamsConfigured();
 
 #endif // FOLM_CHAINPARAMSBASE_H

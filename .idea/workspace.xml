@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ba9ce46-c49f-47d4-ba7e-bee7a6c01d9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/chainparamsbase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/chainparamsbase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chainparamsbase.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/chainparamsbase.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,13 +39,13 @@
           <entry key="am" value="1" />
           <entry key="c" value="2" />
           <entry key="cpp" value="24" />
-          <entry key="h" value="24" />
+          <entry key="h" value="25" />
           <entry key="i" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="51" />
+          <entry key="ObjectiveC" value="52" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -53,7 +53,7 @@
         <counts>
           <entry key="am" value="2" />
           <entry key="cpp" value="4546" />
-          <entry key="h" value="1482" />
+          <entry key="h" value="1486" />
           <entry key="i" value="4" />
           <entry key="txt" value="16" />
         </counts>
@@ -61,7 +61,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="6031" />
+          <entry key="ObjectiveC" value="6035" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -87,18 +87,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chainparamsbase.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="112" column="41" lean-forward="true" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+            <state relative-caret-position="-1323">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/folm-cli.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/chainparamsbase.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="79" column="26" lean-forward="true" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -218,7 +222,6 @@
         <option value="$PROJECT_DIR$/src/rpc/mining.cpp" />
         <option value="$PROJECT_DIR$/src/validation.h" />
         <option value="$PROJECT_DIR$/src/stake.cpp" />
-        <option value="$PROJECT_DIR$/src/chainparamsbase.h" />
         <option value="$PROJECT_DIR$/src/init.cpp" />
         <option value="$PROJECT_DIR$/src/uint256.h" />
         <option value="$PROJECT_DIR$/src/uint256.cpp" />
@@ -232,6 +235,7 @@
         <option value="$PROJECT_DIR$/src/chainparams.cpp" />
         <option value="$PROJECT_DIR$/src/chainparams.h" />
         <option value="$PROJECT_DIR$/src/chainparamsbase.cpp" />
+        <option value="$PROJECT_DIR$/src/chainparamsbase.h" />
       </list>
     </option>
   </component>
@@ -304,12 +308,12 @@
       <workItem from="1540275464872" duration="3915000" />
       <workItem from="1540381604207" duration="2554000" />
       <workItem from="1540882499295" duration="1436000" />
-      <workItem from="1541138817946" duration="1574000" />
+      <workItem from="1541138817946" duration="1685000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41649000" />
+    <option name="totallyTimeSpent" value="41760000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="-2" width="960" height="1050" extended-state="4" />
@@ -507,13 +511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chainparamsbase.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/init.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3090">
@@ -606,8 +603,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chainparamsbase.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="112" column="41" lean-forward="true" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+        <state relative-caret-position="-1323">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chainparamsbase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="79" column="26" lean-forward="true" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
         </state>
       </provider>
     </entry>
